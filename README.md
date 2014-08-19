@@ -9,15 +9,24 @@ escrito nos arquivos de layout.
 
 ### Generators
 
-Exemplos:
-sails generate model users
+```sh
+$sails generate model users
+```
+
+```sh
 sails generate model messages
+```
+
+```sh
 sails generate controller messages
+```
+```sh
 sails generate controller main
+```
 
-E geradores de açoes específicas
-
+```
 sails generate controller main index show
+```
 
 ### ORM
 Possui uma ORM propria [Waterline](https://github.com/balderdashy/waterline)
