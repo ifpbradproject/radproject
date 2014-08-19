@@ -77,14 +77,12 @@ dizendo em quais controllers e actions aquele filtro se aplica.
 
 Exemplos:
 
-```beforeCreate```
-
-```beforeValidate```
+```beforeCreate``` e ```beforeValidate```
 
 
 ### Model methods (rails scope)
 
-Model ```User```
+Model - ```User```
 
 ```js
 attributes: {
@@ -106,7 +104,6 @@ attributes: {
     return this.firstName + ' ' + this.lastname
   }
 }
-
 ```
 
 #Console
