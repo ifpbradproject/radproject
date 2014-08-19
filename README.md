@@ -73,12 +73,12 @@ Crie um filtro customizado no api/policies, e depois configure o config/policies
 dizendo em quais controllers e actions aquele filtro se aplica.
 
 
-
 ### Model Hooks 
 
 Exemplos:
 
 ```beforeCreate```
+
 ```beforeValidate```
 
 
@@ -146,5 +146,7 @@ E recuperadas nas views ->
 Quando rodamos o servidor , ele dá 3 opçoes de migration.
 
 safe:  Fazer migration na mao.
+
 alter: ele TENTA fazer a migraçao automaticamente sem perda de dados. 
+
 drop:  Limpa o banco de dados e reconstroi fazendo todas as migracoes necessarias.
