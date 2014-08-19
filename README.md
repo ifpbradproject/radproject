@@ -123,7 +123,7 @@ consiguraçao. E é opcional.
 
 partials através do ```<% include partial_name %>```
 
-### Messagens Flash
+### Menssagens Flash
 
 Sao geradas nos controllers -> 
 
