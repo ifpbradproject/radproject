@@ -44,12 +44,70 @@ ie: Users.findByUrlId(), Users.findOneByUrlId()
 ORM já adicona metadados de criaçao.
 ```created_at``` e ```updated_at```
 
-### Filtros
-Possui Filtros,  before/after
+### Validations
+
+Validations feitas no Model. Possui quase todas as validaçoes que o Rails possui.
+
+```js
+attributes: {
+  firstName: {
+    type: 'string',
+    required: true,
+    minLength: 5,
+    maxLength: 15
+  },
+  lastName: {
+    type: 'string',
+    required: true,
+    minLength: 5,
+    maxLength: 100
+  }
+}
+```
+
+### Filtros de Controllers
+
+Possui Filtros, de Controllers
 
 Crie um filtro customizado no api/policies, e depois configure o config/policies
 dizendo em quais controllers e actions aquele filtro se aplica.
 
+
+
+### Model Hooks 
+
+Exemplos:
+
+```beforeCreate```
+```beforeValidate```
+
+
+### Model methods (rails scope)
+
+Model ```User```
+
+```js
+attributes: {
+
+  firstName: {
+    type: 'string',
+    required: true,
+    minLength: 5,
+    maxLength: 15
+  },
+  lastName: {
+    type: 'string',
+    required: true,
+    minLength: 5,
+    maxLength: 100
+  },
+  // Custom Method !
+  fullName: function() {
+    return this.firstName + ' ' + this.lastname
+  }
+}
+
+```
 
 #Console
 
@@ -67,3 +125,26 @@ Arquivo de layout é por default ```layout.ejs```, mas pode ser alterado nos arq
 consiguraçao. E é opcional.
 
 partials através do ```<% include partial_name %>```
+
+### Messagens Flash
+
+Sao geradas nos controllers -> 
+
+```js
+req.flash('notFoundMsg', 'user not found')
+res.redirect('/route')
+```
+
+E recuperadas nas views ->
+
+```ejs
+<%- req.flash('notFoundMsg') %>
+```
+
+### Migrations
+
+Quando rodamos o servidor , ele dá 3 opçoes de migration.
+
+safe:  Fazer migration na mao.
+alter: ele TENTA fazer a migraçao automaticamente sem perda de dados. 
+drop:  Limpa o banco de dados e reconstroi fazendo todas as migracoes necessarias.
