@@ -20,7 +20,7 @@ $ sails generate controller messages
 $ sails generate controller main
 ```
 
-```
+```sh
 $ sails generate controller main index show
 ```
 
@@ -29,18 +29,17 @@ Possui uma ORM própria [Waterline](https://github.com/balderdashy/waterline)
 
 ORM se personaliza de acordo com os atributos
 
-i.e
-Para o Model ```User```
+i.e: Para o Model ```Users```
 
 ```js
 attribtues: {
 	name: 'STRING'
-	Urls: 'INT`	
+	urldId: 'INT'
 }
 ```
 
 Temos os seguintes métodos automaticamente
-ie: findByUser(), findOneByUser() 
+ie: Users.findByUrlId(), Users.findOneByUrlId() 
 
 ORM já adicona metadados de criaçao.
 ```created_at``` e ```updated_at```
