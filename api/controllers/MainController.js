@@ -135,7 +135,7 @@ module.exports = {
     var urlId = req.query.urlId
 
     Urls.findOneById(urlId, function(err, doc) {
-      console.log(doc)
+
       if (doc.userId != req.session.user.id) res.send('espertinho !')
       Urls.destroy({ id: doc.id }, function(err, d) {
         if (err) res.send(500, { error: 'wtf' })
