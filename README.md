@@ -147,3 +147,8 @@ safe:  Fazer migration na mao.
 alter: ele TENTA fazer a migraçao automaticamente sem perda de dados. 
 
 drop:  Limpa o banco de dados e reconstroi fazendo todas as migracoes necessarias.
+
+
+### i18n
+
+Alterar arquivo ```config/locales```, e acessar na view como __('Hello')
