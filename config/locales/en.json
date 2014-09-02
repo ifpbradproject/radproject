@@ -1,4 +1,4 @@
 {
-	"Welcome": "Welcome",
-	"A brand new app.": "A brand new app."
+  "not-saved": "You didn`t save any link yet. ;(",
+  "tutorial": "Save links this way -> localhost:1337/{your_link}"
 }

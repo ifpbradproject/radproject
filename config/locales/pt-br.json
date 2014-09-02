@@ -1,0 +1,6 @@
+{
+	"Hello": "Olá",
+	"Your Urls": "Suas Urls",
+  "not-saved": "Voce nao salvou nenhum link ainda ;( . . .",
+  "tutorial": "Salve links assim -> localhost:1337/{seu_link}"
+}

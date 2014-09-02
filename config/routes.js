@@ -48,7 +48,7 @@ module.exports.routes = {
     controller:'main',
     action: 'createaccount'
   },
-  '/dashboard': {
+  '/dashboard.:format?': {
     controller: 'main',
     action: 'dashboard'
   },

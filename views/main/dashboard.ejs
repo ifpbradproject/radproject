@@ -1,31 +1,48 @@
 <%- req.flash('sucDel') %>
 
 <% if (user) { %>
-  <h2>Olá, <%= user.user %>
+  <h2> <%= __('Hello') %>, <%= user.user %>
   <% include logout_partial %>
 <% } %>
+
 <div class="bs-example">
+
   <br>
+
   <% if (urls.length > 0) { %>
+
   <table class="table">
+
       <thead>
           <tr>
-              <th>Suas Urls</th>
+              <th> <%= __('Your Urls') %> </th>
               <th></th>
           </tr>
       </thead>
+
       <tbody>
-    <% for (var i = 0; i < urls.length; i++ ) { %>
-        <tr>
-            <td><a target="_blank" href="http://<%= urls[i].url %>"</a><%= urls[i].url %></td>
-            <td><a href="/delUrl?urlId=<%= urls[i].id%>"> Remover </td>
-        </tr>
+
+        <% for (var i = 0; i < urls.length; i++ ) { %>
+            <tr>
+                <td><a target="_blank" href="http://<%= urls[i].url %>"</a><%= urls[i].url %></td>
+                <td><button type="button" class="btn btn-default" value="<%= urls[i].id%>" id="delBtn"> Remove </button>
+                </td>
+
+            </tr>
+        <% } %>
     <% } %>
-  <% } %>
-  <% if (urls.length == 0) { %>
-   <h3> Voce nao salvou nenhum link ainda ;( . . . </h3>
-   <h4> Salve links assim -> localhost:1337/{seu_link}</h4>
-  <% } %>
+
+      <% if (urls.length == 0) { %>
+        <h3> <%= __('not-saved') %> </h3>
+        <h4> <%= __('tutorial') %> </h4>
+      <% } %>
+
       </tbody>
+
+      <% if (urls.length > 0) { %>
+        <h5> You have <%= c %> links saved. </h5>
+      <% } %>
+
   </table>
+
 </div>

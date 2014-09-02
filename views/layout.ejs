@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/simplePagination.css">
     <link rel="stylesheet" href="/styles/style.css">
     <!--STYLES END-->
   </head>
@@ -91,10 +92,24 @@
           + Use a different preprocessor, like TypeScript
 
     -->
-
+<!--     <footer>
+      <a href="/useEnglish">Ingles</a><br/>
+      <a href="/usePortuguese">Portugues</a>
+    </footer> -->
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/dependencies/bootstrap.js"></script>
+    <script src="/js/dependencies/jquery.js"></script>
+    <script src="/js/dependencies/jquery.simplePagination.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#delBtn').click(function() {
+          $.get("/delUrl?urlId=" + this.value, function(data) {
+            location.href = '/dashboard'
+          })
+        })
+      })
+    </script>
     <!--SCRIPTS END-->
   </body>
 </html>

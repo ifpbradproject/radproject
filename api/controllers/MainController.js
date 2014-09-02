@@ -66,7 +66,10 @@ module.exports = {
         password = hasher.generate(password);
              
         Users.create({user: user, password: password}, function(error, _user) {
-          if (error) res.send(500, {error: "DB Error"})
+          if (error)  {
+            req.flash('error', 'Validation Error')
+            res.redirect('/signup')
+          }
           else {
             req.flash('usrCreated', 'Account created !');
             res.redirect('/');
@@ -77,12 +80,44 @@ module.exports = {
   },
 
   dashboard: function(req, res) {
-    Urls.findByUserId(req.session.user.id, function(err, u) {
-      if (err) {
-        res.send(500, { error: 'db error'})
-      }
-      res.view({ user: req.session.user, urls: u } )
+    
+    var page  = req.query.page  || 1
+    var limit = req.query.limit || 50
+    var isFirstPage = true
+
+    page === 1 ? isFirstPage = true : isFirstPage = false
+
+    Urls
+    .findByUserId(req.session.user.id)
+    .paginate({ page: page, limit: limit })
+    .exec(function(err, u) {
+      Urls.findByUserId(req.session.user.id, function(error, c) {
+
+        var count = c.length
+
+        if (err) res.send(500, { error: 'db error'})
+
+        var response = {
+          user: req.session.user.user,
+          urls: []
+        }
+        
+        u.forEach(function(v) {
+          var _url = {}
+          _url['url'] = v.url
+          response.urls.push(_url)
+        })
+
+        if (req.params.format === 'json') { 
+          return res.json(response)
+        }
+        else {
+          res.view({ c: c.length, isFirstPage: isFirstPage, page: page, limit: limit, user: req.session.user, urls: u } )       
+        } 
+      })
+
     })
+
   },
 
   storeUrl: function(req, res) {
