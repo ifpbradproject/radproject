@@ -1,4 +1,12 @@
 {
+	"Hello": "Hello",
+	"Please Sing in": "Please sign in to continue...",
+	"Sign in": " Sign in",
+	"Create account": "Create an account",
+	"Your Urls": "Suas Urls",
+	"You have": "You have",
+	"links saved": "links saved",
+	"CreatedAt": "CreatedAt",
   "not-saved": "You didn`t save any link yet. ;(",
   "tutorial": "Save links this way -> localhost:1337/{your_link}"
 }

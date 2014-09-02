@@ -1,6 +1,12 @@
 {
 	"Hello": "Olá",
+	"Please Sing in": "Por Favor autentique-se para continuar...",
+	"Sign in": " Entrar",
+	"Create account": "Crie uma conta",
 	"Your Urls": "Suas Urls",
+	"You have": "Você tem",
+	"links saved": "links salvos",
+	"CreatedAt": "Criado em",
   "not-saved": "Voce nao salvou nenhum link ainda ;( . . .",
   "tutorial": "Salve links assim -> localhost:1337/{seu_link}"
 }
