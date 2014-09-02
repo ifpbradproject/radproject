@@ -101,15 +101,6 @@
     <script src="/js/dependencies/bootstrap.js"></script>
     <script src="/js/dependencies/jquery.js"></script>
     <script src="/js/dependencies/jquery.simplePagination.js"></script>
-    <script>
-      $(document).ready(function() {
-        $('#delBtn').click(function() {
-          $.get("/delUrl?urlId=" + this.value, function(data) {
-            location.href = '/dashboard'
-          })
-        })
-      })
-    </script>
     <!--SCRIPTS END-->
   </body>
 </html>

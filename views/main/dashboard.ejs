@@ -1,48 +1,72 @@
-<%- req.flash('sucDel') %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link href="stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+  </head>
 
-<% if (user) { %>
-  <h2> <%= __('Hello') %>, <%= user.user %>
-  <% include logout_partial %>
-<% } %>
+  <body>
 
-<div class="bs-example">
+    <% include head %>
 
-  <br>
+    <%- req.flash('sucDel') %>
+
+    <ul class="nav navbar-nav navbar-right ">
+      <li><% include logout_partial %></li>
+    </ul>
+
+    <% if (user) { %>
+      <h2> <%= __('Hello') %>, <%= user.user %>
+    <% } %>
+
+  <div class="container">
+    <div class="row">
+  <% if (urls.length > 0) { %>
+        <h5> <%= __('You have') %> <%= c %> <%= __('links saved') %>. </h5>
+  <% } %>
+
+  <% if (urls.length == 0) { %>
+    <h3> <%= __('not-saved') %> </h3>
+    <h4> <%= __('tutorial') %> </h4>
+  <% } %>
 
   <% if (urls.length > 0) { %>
 
-  <table class="table">
+    <table class="table table-striped table-hover ">
 
-      <thead>
-          <tr>
-              <th> <%= __('Your Urls') %> </th>
-              <th></th>
-          </tr>
-      </thead>
-
-      <tbody>
-
-        <% for (var i = 0; i < urls.length; i++ ) { %>
+        <thead>
             <tr>
-                <td><a target="_blank" href="http://<%= urls[i].url %>"</a><%= urls[i].url %></td>
-                <td><button type="button" class="btn btn-default" value="<%= urls[i].id%>" id="delBtn"> Remove </button>
-                </td>
-
+                <th> <%= __('Your Urls') %> </th>
+                <th><%= __('CreatedAt') %></th>
+                <th></th>
             </tr>
-        <% } %>
-    <% } %>
+        </thead>
 
-      <% if (urls.length == 0) { %>
-        <h3> <%= __('not-saved') %> </h3>
-        <h4> <%= __('tutorial') %> </h4>
-      <% } %>
+        <tbody>
 
-      </tbody>
+          <% for (var i = 0; i < urls.length; i++ ) { %>
+              <tr>
+                  <td><a target="_blank" href="http://<%= urls[i].url %>"</a><%= urls[i].url %></td>
+                  <% var date = (new Date(urls[i].createdAt)).toISOString().slice(0,10) %>
+                  <td><%= date%></td>
+                  <td>
+                    <button type="button" class="btn btn-primary btn-xs" value="<%= urls[i].id%>" id="delBtn">Remove</button>
+                  </td>
+              </tr>
+          <% } %>
+        </tbody>
+    </table>
+  
+  <% } %>
+  </div>
+  </div>
 
-      <% if (urls.length > 0) { %>
-        <h5> You have <%= c %> links saved. </h5>
-      <% } %>
+    <% include footer %>
 
-  </table>
-
-</div>
+  </body>
+</html>
